@@ -1,7 +1,7 @@
 let numberOfBalloons;
 
 function addMouseEvent() {
-    balloons = document.querySelectorAll(".balloon");
+    let balloons = document.querySelectorAll(".balloon");
 
     numberOfBalloons = balloons.length;
 
