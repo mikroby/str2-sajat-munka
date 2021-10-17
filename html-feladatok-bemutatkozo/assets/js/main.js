@@ -3,23 +3,24 @@ function validate() {
     const email = document.querySelector('form input[name="email"]').value;
     const message = document.querySelector('form textarea[name="message"]').value;
 
-    let result = true;
+    let result;
 
     if (!validateName(name)) {
         alert("A név legalább 5 karakter hosszúságú legyen, és nem lehet benne szám sem !");
         result = false;
     } else {
         if (!validateEmail(email)) {
-            alert("Az email nem felel meg a formátumnak !");
+            alert("Az email nem felel meg az 'abc@x.valami' formátumnak !");
             result = false;
         } else {
             if (!validateMessage(message)) {
                 alert("Az üzenet legalább 20 karakter hosszúságú legyen !");
                 result = false;
+            } else {
+                result = true;
             }
         }
     }
-
     return result;
 }
 
@@ -33,8 +34,8 @@ function validateName(name) {
 }
 
 function validateEmail(email) {
-    const at = email.indexOf('@');
-    return email.includes('.', at) > 0 ? true : false;
+    const atPlace = email.indexOf('@');    
+    return (atPlace>2 && email.includes('.', atPlace+1)) ? true:false;
 }
 
 function validateMessage(message) {
