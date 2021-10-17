@@ -1,0 +1,183 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* GENERAL: FONT & BACKGROUND */
+html{
+    font-family: 'Nunito', sans-serif;
+    background: url('/assets/img/hatter.bmp');    
+    scroll-behavior:smooth;
+}
+body{
+    margin: 3%;
+}
+
+/* TEXT */
+h1{
+    letter-spacing: 2px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+    color:aliceblue;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color:aliceblue;
+    margin: 0;
+    padding: 0;
+}
+h3{    
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 30px;
+}
+h4{    
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0px;
+    padding: 30px;
+}
+p{
+    font-size: 16px;
+    font-weight: 300;
+    margin: 10px 30px;
+}
+
+/* SEMANTIC ELEMENT */
+header, footer,main{
+    background-color: rgb(65, 65, 65);    
+    margin: 0;
+    padding: 15px;    
+}
+footer{
+    text-align: center;
+}
+nav{
+    background:aliceblue;
+    margin: 0;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.flex-container{
+    display: flex;    
+}
+.goods{
+    width: 25%;
+    text-align: center;
+    background:aliceblue;    
+    margin: 15px auto;
+    padding: 30px;
+    letter-spacing: 5px;
+    font-size: 18px;
+    font-weight: 300;
+    text-shadow:slategray 0px 3px 4px;
+    color:black;
+    box-shadow: black 5px 5px 20px;
+    border-radius: 5px;
+}
+button{
+    border-radius: 5px;
+    border-style: none;
+    background:aliceblue;
+    text-align: center;
+    font-size: 15px;
+    margin: 0px;  
+    padding: 7px;
+}
+.box{
+    color: black;
+    background:aliceblue;
+    margin: 0px 0px 30px;
+    padding: 0 0 30px;
+}
+.inbetween{
+    margin: 0;
+    padding: 30px;
+}
+.attached{
+    color: black;
+    background:aliceblue;
+    margin: 30px 0 0 0;
+    padding: 15px;
+}
+.attached h2{
+    color:black;
+    font-weight: 900;
+    text-align: left;
+}
+form{
+    margin: 0 30px;
+    padding: 0px;    
+    flex-direction: column;    
+}
+form div{
+    margin:0px 0 15px;
+}
+
+/* TABLE & LIST */
+ul,ol{
+    list-style-position: inside;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+nav ul li{
+    display: inline;
+    list-style: none;    
+    font-size: 20px;
+    font-weight: 500;    
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* IMAGE & VIDEO */
+.full-width{
+    display: block;
+    width: 100%;
+}
+.illustration{      
+    width: 300px;
+    box-shadow: slategray 5px 10px 7px;
+    opacity: 0.75;              
+    border-radius: 10px;
+}
+.photos img{       
+    /* width: 30%;     */
+    width:300px;
+    height:300px;     
+    margin: 1.5%;
+    box-shadow: slategray 7px 7px 7px;
+    border-radius: 10px;      
+}
+.photos{    
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+}
+.about{
+    width: 400px;
+    box-shadow: slategray 5px 10px 7px;               
+    border-radius: 10px;
+}
+
+/* ANCHOR */
+a{
+    text-decoration-line:none;
+    text-shadow:slategray 0px 0px 2px;
+    color: darkgray;
+}
+a:hover{
+    text-shadow:black 0px 0px 3px;
+    color:black;
+}
+a:active{
+    text-shadow:black 0px 0px 1px;
+    color:black;
+}
