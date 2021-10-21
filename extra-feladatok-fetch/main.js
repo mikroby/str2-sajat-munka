@@ -15,8 +15,11 @@ const read = {
 getStart();
 
 function getStart() {
-    communicateServer(teamsJson, read).then(data => displayTeam(data)).then(backdata =>
-        communicateServer(playersJson, read).then(data => displayPlayer(data)));
+    Promise.all([communicateServer(teamsJson, read), communicateServer(playersJson, read)]).then(resp => {
+        const [teamsObject, playerObject] = resp;
+        displayTeam(teamsObject);
+        displayPlayer(playerObject);
+    });
 }
 
 function communicateServer(jsonPart, method) {
@@ -58,11 +61,11 @@ function displayPlayer(data) {
 
     for (let object of data) {
         for (let i = 0; i < dataToDisplay_player.length; i++) {
-            
+
             info[i] = object[dataToDisplay_player[i]];
             if (dataToDisplay_player[i] === 'name') {
                 const temp = info[i].split(' ');
-                info[i]= temp[1]+' '+temp[0];
+                info[i] = temp[1] + ' ' + temp[0];
             }
         }
         const li = document.createElement('li');
