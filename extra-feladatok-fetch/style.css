@@ -25,10 +25,18 @@ div{
 #green{
     background-color: green;
 }
-section{
+main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;   
+}
+section{
+    background-color: aliceblue;
+    display: inline-block;    
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    padding: 20px;
+    margin: 0 auto;
 }
 h1,h2{
     text-align: center;
@@ -43,7 +51,8 @@ h1{
 h2{
     margin-top: 50px;
 }
-ul{     
+ul{
+    float: left;
     font-style: italic;   
     font-size: 20px;
     font-weight: 300;
