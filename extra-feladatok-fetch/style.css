@@ -1,40 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+@keyframes moveOpacity {
+    0% {opacity:0;}
+    100% {opacity: 100%;}
+}
+
 html{
     font-family: 'Nunito', sans-serif;     
     scroll-behavior:smooth;
-}
-body{
-    background-color: lightgrey;
-    margin: 0;
-    padding: 20px;
-}
-div{    
-    box-sizing: border-box;    
-    width: 200px;
-    height: 50px;
-    margin: 0 auto;
     transition: background-color 2s linear 0.5s;
 }
-#red{
-    background-color: red;
+body{
+    background-color: rgb(184, 184, 184);
+    margin: 0;
+    padding: 30px;
+    animation: moveOpacity 4s linear;
 }
-#white{
-    background-color: white;
+
+.container{
+    box-shadow: 0px 0px 5px black;
+    display: block;   
+    padding: 0;    
+    margin:0 auto;
+    box-sizing: border-box;
+    height:150px;
+}
+div{       
+    box-sizing: border-box;    
+    width: 200px;
+    height: 50px;    
+}
+#red{
+    background-image: linear-gradient(to right, red, 25%, snow, 75%,red);    
+}
+#white{   
+    background-image: linear-gradient(to right, lightgrey,25%, snow,75%, lightgrey);    
 }
 #green{
-    background-color: green;
+    background-image: linear-gradient(to right, green,25%, snow,75%,green);    
 }
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;   
+    justify-content: center;
+    margin-top: 20px;  
 }
 section{
     background-color: aliceblue;
     display: inline-block;    
     border-radius: 10px;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 7px black;
     padding: 20px;
     margin: 0 auto;
 }
@@ -51,20 +66,22 @@ h1{
 h2{
     margin-top: 50px;
 }
-ul{
+ul,ol{
     float: left;
     font-style: italic;   
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     margin: 0 20px;
     padding: 0;
-    list-style: none;        
+    list-style-position: inside;
+    line-height: 2em;
+}
+ul{
+    list-style: none;
+    font-size: 20px;
 }
 .team-info{
     font-weight: 600;
-}
-.team-members{
-    line-height: 2em;
 }
 footer{
     margin-top: 30px;

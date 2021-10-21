@@ -36,14 +36,14 @@ function displayTeam(data) {
         if (object.Team === requiredTeam) {
 
             document.querySelector('#team-name').textContent = requiredTeam;
-            const ul_basic = document.querySelector('.team-data');
+            const ul_team = document.querySelector('.team-data');
             const ul_info = document.querySelector('.team-info');
 
             for (let i = 0; i < dataToDisplay_team.length; i++) {
 
                 let li = document.createElement('li');
                 li.textContent = `${dataToDisplay_team[i] + ' :'}`;
-                ul_basic.appendChild(li);
+                ul_team.appendChild(li);
 
                 li = document.createElement('li');
                 li.textContent = `${object[dataToDisplay_team[i]]}`;
@@ -56,7 +56,7 @@ function displayTeam(data) {
 
 function displayPlayer(data) {
     data = data.sheets.Players;
-    const ul = document.querySelector('.team-members');
+    const ol = document.querySelector('.team-members');
     const info = [];
 
     for (let object of data) {
@@ -70,7 +70,7 @@ function displayPlayer(data) {
         }
         const li = document.createElement('li');
         li.textContent = `${info.join(', ')}`;
-        ul.appendChild(li);
+        ol.appendChild(li);
     }
 }
 
