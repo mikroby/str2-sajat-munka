@@ -26,11 +26,13 @@ html{
     font-family: 'Nunito', sans-serif;    
     scroll-behavior:smooth;
     font-size: 16px;
+    height: 100%;
 }
 body{    
     background-color: var(--body-bg-color);   
     margin: 0;    
     user-select: none;
+    height:100%;
 }
 *{
     box-sizing: border-box;
@@ -110,7 +112,8 @@ form{
 
 main{
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
+    height: 90%;
 }
 aside{   
     flex: 20%;    
