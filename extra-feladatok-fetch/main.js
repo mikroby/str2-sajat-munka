@@ -39,9 +39,10 @@ function displayTeam(data) {
             const ul_team = document.querySelector('.team-data');
             const ul_info = document.querySelector('.team-info');
 
+            let li;
             for (let i = 0; i < dataToDisplay_team.length; i++) {
 
-                let li = document.createElement('li');
+                li = document.createElement('li');
                 li.textContent = `${dataToDisplay_team[i] + ' :'}`;
                 ul_team.appendChild(li);
 
