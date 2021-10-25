@@ -243,7 +243,11 @@ h1{
 }
 
 @media screen and (max-width:699px)
-{    
+{   
+    main{
+        height: 100%;
+    }
+    
     aside{
         flex: 5%;
     }
