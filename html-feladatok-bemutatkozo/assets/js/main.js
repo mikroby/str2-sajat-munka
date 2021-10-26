@@ -26,16 +26,12 @@ function validate() {
 
 function validateName(name) {
     const pattern = new RegExp('[0-9]');
-    if (name.length < 5 || pattern.test(name)) {
-        return false;
-    } else {
-        return true;
-    }
+    return (name.length < 5 || pattern.test(name)) ? false : true;
 }
 
 function validateEmail(email) {
-    const atPlace = email.indexOf('@');    
-    return (atPlace>2 && email.includes('.', atPlace+1)) ? true:false;
+    const atPlace = email.indexOf('@');
+    return (atPlace > 2 && email.includes('.', atPlace + 1)) ? true : false;
 }
 
 function validateMessage(message) {
