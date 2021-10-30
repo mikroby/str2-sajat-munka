@@ -42,10 +42,15 @@ function initialize() {
     showTurn(currentMark);
 }
 
-function putMark() {
+function animate(){
     const element=document.querySelector('#game__header');
     element.className='game__header--shock';
-    setTimeout(()=>element.className='',500);
+    setTimeout(()=>element.className='',510);
+}
+
+function putMark() {
+
+    animate();
 
     this.textContent = marks[Number(currentMark)];
     this.setAttribute('data-value', currentMark ? 1 : -1);
