@@ -2,7 +2,7 @@
 // 1.) ha N a megnyeréshez szükséges jelek száma, akkor elegendő 2*N-1-ik lépéstől keresni a lehetséges győztest.
 // 2.) nem kell az egész táblát végigellenőrizni, elegendő az éppen lerakott jel oszlopában, sorában és a két áthaladó átlóban összeszámolni a lerakott jel db-számát.
 // 3.) az éppen aktuális vonal mentén az összeszámolásnál ha a soron következő cella tartalma nem egyezik az előző celláéval, a számlálót nullázni kell és ehhez hozzáadva a kurrens cella értékét folytatni a számlálást.
-// az alábbi kód, egyelőre az 1.)-est valósítja meg, később szeretném általános esetre kibővíteni.
+// az alábbi kód a fentiek közül, egyelőre 3x3-as méretű táblán működve az 1.)-est valósítja meg, később szeretném általános esetre kibővíteni.
 // bocsánat, a fentieket nehéz lett volna angolul...
 
 'use strict';
