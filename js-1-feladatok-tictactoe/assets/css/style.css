@@ -80,7 +80,10 @@ main{
 .winnerCells{
     animation: zoom 0.5s alternate 5;
 }
-@keyframes zoom {       
+@keyframes zoom {
+    0%{
+        font-size: 3rem;        
+    }      
     50%{
         font-size: 4rem;
     }
