@@ -25,6 +25,11 @@ let winnerIs;
     initialize();
 })();
 
+function newGameStart() {
+    closeModal();
+    initialize();
+}
+
 const openModal = (mainMessage, altMessage, okBtnLabel, cancelBtnLabel) => {
     document.querySelector('#overlay').setAttribute('class', 'overlay--appear');
     document.querySelector('#modal').setAttribute('class', 'modal--appear');
@@ -53,21 +58,9 @@ function initialize() {
     showTurn(currentMark);
 }
 
-function animate() {
-    const element = document.querySelector('#game__header');
-    element.className = 'game__header--shock';
-    setTimeout(() => element.className = '', 510);
-}
-
-function putMark(cell) {
-    cell.textContent = marks[Number(currentMark)];
-    cell.setAttribute('data-value', currentMark ? 1 : -1);
-    cell.removeEventListener('click', gameMainMethod);
-}
-
 function gameMainMethod() {
 
-    animate();
+    animateHeader();
 
     putMark(this);
 
@@ -78,6 +71,18 @@ function gameMainMethod() {
     currentMark = !currentMark;
     steps++;
     showTurn(currentMark);
+}
+
+function animateHeader() {
+    const element = document.querySelector('#game__header');
+    element.className = 'game__header--shock';
+    setTimeout(() => element.className = '', 510);
+}
+
+function putMark(cell) {
+    cell.textContent = marks[Number(currentMark)];
+    cell.setAttribute('data-value', currentMark ? 1 : -1);
+    cell.removeEventListener('click', gameMainMethod);
 }
 
 function check() {
@@ -113,9 +118,4 @@ function winner(winnerIs, pattern) {
 
 function showTurn(player) {
     document.querySelector('#nextPlayer').textContent = marks[Number(player)];
-}
-
-function newGameStart() {
-    closeModal();
-    initialize();
 }
