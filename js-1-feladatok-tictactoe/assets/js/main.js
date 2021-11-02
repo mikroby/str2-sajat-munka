@@ -69,11 +69,7 @@ function putMark() {
 
     if (steps >= minStepsToCheckWinner) {
         check();
-    }
-
-    if (steps === 9 && winnerIs === '') {
-        openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
-    }
+    }    
 
     currentMark = !currentMark;
     steps++;
@@ -97,8 +93,12 @@ function evaluate(sumOfMarks) {
 
     if (Math.abs(sumOfMarks) === minMarksToWin) {
         // making 0 or 1 as an index to choose the winner mark.
-        winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];
+        winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];        
         openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés');
+    }
+
+    if (steps === 9 && winnerIs === '') {
+        openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
     }
 }
 
