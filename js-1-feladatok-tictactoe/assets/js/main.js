@@ -69,7 +69,7 @@ function putMark() {
 
     if (steps >= minStepsToCheckWinner) {
         check();
-    }    
+    }
 
     currentMark = !currentMark;
     steps++;
@@ -85,16 +85,23 @@ function check() {
             sumOfMarks += Number(document.querySelector(`[data-index = '${index}']`)
                 .getAttribute('data-value')));
 
-        evaluate(sumOfMarks);
+        evaluate(sumOfMarks, pattern);
     });
 }
 
-function evaluate(sumOfMarks) {
+function evaluate(sumOfMarks, pattern) {
 
     if (Math.abs(sumOfMarks) === minMarksToWin) {
         // making 0 or 1 as an index to choose the winner mark.
-        winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];        
-        openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés');
+        winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];
+
+        pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
+        .className='winnerCells');            
+        
+        setTimeout(()=>pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
+        .className='cell'),2000);
+
+        setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2000);
     }
 
     if (steps === 9 && winnerIs === '') {
