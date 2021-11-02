@@ -96,7 +96,7 @@ function check() {
             winner(winnerIs, pattern);
         }
     });
-    
+
     if (steps === 9 && winnerIs === '') {
         openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
     }
@@ -106,10 +106,9 @@ function winner(winnerIs, pattern) {
     pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
         .className = 'cell winnerCells');
 
-    setTimeout(() => pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
-        .className = 'cell'), 2510);
+    setTimeout(() => document.querySelectorAll('.cell.winnerCells').forEach(element => element.className = 'cell'), 2510);
 
-    setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2510);
+    setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2520);
 }
 
 function showTurn(player) {
