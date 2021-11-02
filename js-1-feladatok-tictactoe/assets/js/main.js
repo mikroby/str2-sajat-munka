@@ -41,7 +41,7 @@ const closeModal = () => {
 
 function initialize() {
     document.querySelectorAll('.cell').forEach(item => {
-        item.addEventListener('click', putMark);
+        item.addEventListener('click', gameMainMethod);
         item.setAttribute('data-value', 0);
         item.textContent = '';
     });
@@ -59,13 +59,17 @@ function animate() {
     setTimeout(() => element.className = '', 510);
 }
 
-function putMark() {
+function putMark(cell) {
+    cell.textContent = marks[Number(currentMark)];
+    cell.setAttribute('data-value', currentMark ? 1 : -1);
+    cell.removeEventListener('click', gameMainMethod);
+}
+
+function gameMainMethod() {
 
     animate();
 
-    this.textContent = marks[Number(currentMark)];
-    this.setAttribute('data-value', currentMark ? 1 : -1);
-    this.removeEventListener('click', putMark);
+    putMark(this);
 
     if (steps >= minStepsToCheckWinner) {
         check();
@@ -85,28 +89,27 @@ function check() {
             sumOfMarks += Number(document.querySelector(`[data-index = '${index}']`)
                 .getAttribute('data-value')));
 
-        evaluate(sumOfMarks, pattern);
+        if (Math.abs(sumOfMarks) === minMarksToWin) {
+            // making 0 or 1 as an index to choose the winner mark.
+            winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];
+
+            winner(winnerIs, pattern);
+        }
     });
-}
-
-function evaluate(sumOfMarks, pattern) {
-
-    if (Math.abs(sumOfMarks) === minMarksToWin) {
-        // making 0 or 1 as an index to choose the winner mark.
-        winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];
-
-        pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
-        .className='winnerCells');            
-        
-        setTimeout(()=>pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
-        .className='cell'),2000);
-
-        setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2000);
-    }
-
+    
     if (steps === 9 && winnerIs === '') {
         openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
     }
+}
+
+function winner(winnerIs, pattern) {
+    pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
+        .className = 'cell winnerCells');
+
+    setTimeout(() => pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
+        .className = 'cell'), 2510);
+
+    setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2510);
 }
 
 function showTurn(player) {

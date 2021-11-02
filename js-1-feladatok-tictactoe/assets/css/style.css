@@ -78,9 +78,16 @@ main{
     border-style: none solid;
 }
 .winnerCells{
-    animation: shake 0.25s alternate 5;
+    animation: zoom 0.5s alternate 5;
 }
-
+@keyframes zoom {       
+    50%{
+        font-size: 4rem;
+    }
+    100%{
+        font-size: 3rem;
+    }
+}
 
 .btn{
     font-family: inherit;
