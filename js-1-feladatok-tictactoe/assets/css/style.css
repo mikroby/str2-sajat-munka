@@ -63,7 +63,7 @@ main{
     border: 1px rgb(240, 255, 255);
     border-style: solid none;
 }
-.cell{
+.cell, .winnerCells{
     width: 33.333%;  
     color: rgb(240, 255, 255);
     font-size: 3rem;
@@ -76,6 +76,9 @@ main{
 .cell:nth-child(2){
     border: 1px rgb(240, 255, 255);
     border-style: none solid;
+}
+.winnerCells{
+    animation: shake 0.25s alternate 5;
 }
 
 
