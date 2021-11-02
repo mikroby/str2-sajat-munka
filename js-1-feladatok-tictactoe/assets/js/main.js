@@ -55,7 +55,7 @@ function initialize() {
 
     // first player starts with 'X'.
     currentMark = false;
-    showTurn(currentMark);
+    showPlayer();
 }
 
 function gameMainMethod() {
@@ -68,9 +68,9 @@ function gameMainMethod() {
         check();
     }
 
-    currentMark = !currentMark;
-    steps++;
-    showTurn(currentMark);
+    changePlayer();
+    
+    showPlayer();
 }
 
 function animateHeader() {
@@ -98,16 +98,16 @@ function check() {
             // making 0 or 1 as an index to choose the winner mark.
             winnerIs = marks[(sumOfMarks + minMarksToWin) % minStepsToCheckWinner];
 
-            winner(winnerIs, pattern);
+            displayWinner(winnerIs, pattern);
         }
     });
 
     if (steps === 9 && winnerIs === '') {
-        openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
+        displayDraw();
     }
 }
 
-function winner(winnerIs, pattern) {
+function displayWinner(winnerIs, pattern) {
     pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
         .className = 'cell winnerCells');
 
@@ -116,6 +116,14 @@ function winner(winnerIs, pattern) {
     setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2520);
 }
 
-function showTurn(player) {
-    document.querySelector('#nextPlayer').textContent = marks[Number(player)];
+function displayDraw(){
+    openModal('Döntetlen eredmény !', 'Vége a játéknak, nincs több üres cella.', 'Új játék', 'Kilépés');
+}
+
+function showPlayer(player) {
+    document.querySelector('#nextPlayer').textContent = marks[Number(currentMark)];
+}
+function changePlayer(){
+    currentMark = !currentMark;
+    steps++;
 }
