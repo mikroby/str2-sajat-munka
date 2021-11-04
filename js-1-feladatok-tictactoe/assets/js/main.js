@@ -61,7 +61,7 @@ function initialize() {
 function gameMainMethod() {
 
     animateHeader();
-    
+
     putMark(this);
 
     if (steps >= minStepsToCheckWinner) {
@@ -124,6 +124,6 @@ function showPlayer(player) {
     document.querySelector('#nextPlayer').textContent = currentMark;
 }
 function changePlayer() {
+    currentMark = marks[steps % 2];
     steps++;
-    currentMark = marks[(steps+1) % 2];
 }
