@@ -3,7 +3,7 @@
 const clock = document.querySelector('.clock');
 
 const showClock = () => {
-  clock.textContent = new Date().toLocaleTimeString();
+  clock.textContent = new Date().toLocaleTimeString().padStart(8, '0');
   timing();
 };
 
