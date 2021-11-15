@@ -1,0 +1,45 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); */
+@font-face {
+  font-family: Cyberverse;  
+  src: url('../font/Cyberverse.otf');
+}
+
+html{
+  scroll-behavior: smooth;
+  font-family: 'Cyberverse', sans-serif;
+  user-select: none;
+  font-size:16px;
+}
+*{
+	box-sizing: border-box;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;  
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  background-color: black;
+}
+
+.clock{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+  letter-spacing: 0.5rem; 
+  color: #2dceed;
+}
+
+@media screen and (max-width:330px) {
+  html{       
+      font-size:12px;
+  }
+}
