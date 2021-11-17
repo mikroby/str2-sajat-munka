@@ -79,10 +79,12 @@ function parseLastInput() {
   }
 };
 
-const error = (errorMessage) => {  
+const error = (errorMessage) => {
   display.textContent = `${errorMessage}`.toUpperCase();
   calculator.classList.add('error');
-  setTimeout(() => calculator.classList.remove('error'), 600);
+  const id = setTimeout(() => {
+    clearTimeout(id);
+  calculator.classList.remove('error')}, 600);
 }
 
 const checkError = (result) => {
