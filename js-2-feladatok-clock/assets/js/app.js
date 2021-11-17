@@ -8,10 +8,13 @@ const showClock = () => {
 };
 
 const timing = () => {
-  setTimeout(() => showClock(), 1000);
+  let id = setTimeout(() => {
+    clearTimeout(id);
+    showClock()
+  }, 1000);
 };
 
-const startClock=()=>{
+const startClock = () => {
   showClock();
 }
 
