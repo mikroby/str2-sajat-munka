@@ -75,12 +75,15 @@ function gameMainMethod() {
 function animateHeader() {
     const element = document.querySelector('#game__header');
     element.className = 'game__header--shock';
-    setTimeout(() => element.className = '', 510);
+    const id = setTimeout(() => {
+        clearTimeout(id);
+        element.className = ''
+    }, 510);
 }
 
 function putMark(cell) {
     cell.textContent = currentMark;
-    cell.setAttribute('data-value', currentMark===marks[0] ? -1 : 1);
+    cell.setAttribute('data-value', currentMark === marks[0] ? -1 : 1);
     cell.removeEventListener('click', gameMainMethod);
 }
 
@@ -93,7 +96,7 @@ function check() {
             sumOfMarks += Number(document.querySelector(`[data-index = '${index}']`)
                 .getAttribute('data-value')));
 
-        if (Math.abs(sumOfMarks) === minMarksToWin) {            
+        if (Math.abs(sumOfMarks) === minMarksToWin) {
             winnerIs = currentMark;
             displayWinner(winnerIs, pattern);
         }
@@ -106,14 +109,21 @@ function check() {
 
 function displayWinner(winnerIs, pattern) {
 
-    document.querySelectorAll('.cell').forEach(element => element.removeEventListener('click', gameMainMethod));    
+    document.querySelectorAll('.cell').forEach(element => element.removeEventListener('click', gameMainMethod));
 
     pattern.forEach(index => document.querySelector(`[data-index = '${index}']`)
         .className = 'cell winnerCells');
 
-    setTimeout(() => document.querySelectorAll('.cell.winnerCells').forEach(element => element.className = 'cell'), 2510);
+    const id1 = setTimeout(() => {
+        clearTimeout(id1);
+        document.querySelectorAll('.cell.winnerCells')
+            .forEach(element => element.className = 'cell')
+    }, 2510);
 
-    setTimeout(() => openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés'), 2520);
+    const id2 = setTimeout(() => {
+        clearTimeout(id2);
+        openModal(`A győztes: ${winnerIs} jelű játékos!`, '', 'Új játék', 'Kilépés')
+    }, 2520);
 }
 
 function displayDraw() {
@@ -123,6 +133,7 @@ function displayDraw() {
 function showPlayer(player) {
     document.querySelector('#nextPlayer').textContent = currentMark;
 }
+
 function changePlayer() {
     currentMark = marks[steps % 2];
     steps++;
