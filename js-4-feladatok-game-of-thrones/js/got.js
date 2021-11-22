@@ -60,14 +60,19 @@ const animateSelected = (clickedCaption) => {
   clickedCaption.classList.add('stayGrown');
 };
 
-const clearInfo = () => {
-  picture.src = '';
-  infoHeader.textContent = '';
-  shield.src = '';
-  bio.textContent = '';
+const hideUnnecessaryInfo = () => {
+  picture.classList.add('displayNone');
+  shield.classList.add('displayNone');
+  bio.classList.add('displayNone');
+}
+const revealNeededInfo = () => {
+  picture.classList.remove('displayNone');
+  shield.classList.remove('displayNone');
+  bio.classList.remove('displayNone');
 }
 
 const showInfo = (character) => {
+  revealNeededInfo();
   showPicture(character.picture);
   showHeader(character.name, character.house);
   showHouse(character.house);
@@ -116,10 +121,9 @@ const createPortrait = (character) => {
 };
 
 const error = () => {
-  clearInfo();
+  hideUnnecessaryInfo();
   showHeader('Database is empty or missing !');
 };
-
 
 const createCharacters = (list) => {
   if (!list) {
@@ -153,7 +157,7 @@ const searchCharacter = () => {
   if (found) {
     showInfo(found);
   } else {
-    clearInfo();
+    hideUnnecessaryInfo();
     showHeader('Character not found ...');
   }
 };
@@ -162,5 +166,6 @@ const searchCharacter = () => {
   getJson().then(createCharacters);
   document.querySelector('.search__btn').
     addEventListener('click', searchCharacter);
+  hideUnnecessaryInfo();
 }
 )();
