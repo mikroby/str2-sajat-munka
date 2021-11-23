@@ -1,9 +1,9 @@
 'use strict';
 const url = 'json/got.json';
 const method = { method: 'GET' };
-const portraitPlaceholder = '../assets/iron throne.png';
-const picturePlaceholder = '../assets/pictures/iron throne.jpg';
-const shieldPlaceholder = '../assets/houses/shield.png'
+const portraitPlaceholder = 'assets/iron throne.png';
+const picturePlaceholder = 'assets/pictures/iron throne.jpg';
+const shieldPlaceholder = 'assets/houses/shield.png'
 const picture = document.querySelector('.picture');
 const infoHeader = document.querySelector('.infoHeader');
 const shield = document.querySelector('.shield');
@@ -31,7 +31,7 @@ const createTag = (tag, className = '', src = '') => {
 };
 
 const showPicture = (urlPic) => {
-  picture.src = urlPic ? `../${urlPic}` : picturePlaceholder;
+  picture.src = urlPic ? urlPic : picturePlaceholder;
 };
 
 const showHeader = (text) => {
@@ -40,7 +40,7 @@ const showHeader = (text) => {
 
 const showHouse = (house) => {
   shield.src = house ?
-    `../assets/houses/${house}.png` : shieldPlaceholder;
+    `assets/houses/${house}.png` : shieldPlaceholder;
 };
 
 const showBio = (text) => {
@@ -109,7 +109,7 @@ function removeEffects() {
 const createPortrait = (character) => {
   const figure = createTag('figure', 'portrait');
   const urlPortrait = character.portrait || portraitPlaceholder;
-  const image = createTag('img', 'portrait--img', `../${urlPortrait}`);
+  const image = createTag('img', 'portrait--img', urlPortrait);
   const figcaption = createTag('figcaption', 'portrait--caption', '');
   figcaption.textContent = character.name;
   figure.appendChild(image);
