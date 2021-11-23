@@ -1,5 +1,5 @@
 'use strict';
-const url = '../json/got.json';
+const url = 'json/got.json';
 const method = { method: 'GET' };
 const portraitPlaceholder = '../assets/iron throne.png';
 const picturePlaceholder = '../assets/pictures/iron throne.jpg';
