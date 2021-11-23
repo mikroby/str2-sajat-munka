@@ -1,5 +1,6 @@
 'use strict';
-const url = '../json/got.json';
+const url = './json/got.json';
+// const url='http://localhost:5500/json/got.json';
 const method = { method: 'GET' };
 const portraitPlaceholder = '../assets/iron throne.png';
 const picturePlaceholder = '../assets/pictures/iron throne.jpg';
@@ -30,8 +31,8 @@ const createTag = (tag, className = '', src = '') => {
   return element;
 };
 
-const showPicture = (url) => {
-  picture.src = url ? `../${url}` : picturePlaceholder;
+const showPicture = (urlPic) => {
+  picture.src = urlPic ? `../${urlPic}` : picturePlaceholder;
 };
 
 const showHeader = (text) => {
@@ -108,8 +109,8 @@ function removeEffects() {
 
 const createPortrait = (character) => {
   const figure = createTag('figure', 'portrait');
-  const url = character.portrait || portraitPlaceholder;
-  const image = createTag('img', 'portrait--img', `../${url}`);
+  const urlPortrait = character.portrait || portraitPlaceholder;
+  const image = createTag('img', 'portrait--img', `../${urlPortrait}`);
   const figcaption = createTag('figcaption', 'portrait--caption', '');
   figcaption.textContent = character.name;
   figure.appendChild(image);
