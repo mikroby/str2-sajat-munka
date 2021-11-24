@@ -126,7 +126,7 @@ const error = () => {
 };
 
 const createCharacters = (list) => {
-  if (!list) {
+  if (list.length === 0) {
     error();
     return
   };
