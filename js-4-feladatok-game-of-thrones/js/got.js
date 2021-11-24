@@ -30,8 +30,8 @@ const createTag = (tag, className = '', src = '') => {
   return element;
 };
 
-const showPicture = (urlPic) => {
-  picture.src = urlPic ? urlPic : picturePlaceholder;
+const showPicture = (url) => {
+  picture.src = url ? url : picturePlaceholder;
 };
 
 const showHeader = (text) => {
