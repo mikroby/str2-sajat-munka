@@ -48,7 +48,6 @@ function moveIn() {
   child.classList.add('move--in');
 };
 
-
 const addBtnEvents = () => {
   addTaskBtn.addEventListener('click', addNewPending);
   completeTaskBtn.addEventListener('click', toggleDisplay);
@@ -130,7 +129,7 @@ const toggleDisplay = () => {
 
 const showCheers = () => {
   pendingContainer.classList.add('displayNone');
-  completedContainer.classList.add('displayNone');
+  // completedContainer.classList.add('displayNone');
   cheers.classList.remove('displayNone');
 };
 
@@ -191,7 +190,7 @@ const clearAllPending = () => {
 
 const checkPending = (pending) => {
   if (pending.length === 0) {
-    setDefaultToggle();
+    // setDefaultToggle();
     showCheers();
   } else {
     cheers.classList.add('displayNone');
