@@ -142,47 +142,44 @@ const updateMessages = (pending, completed) => {
   completedMessage.textContent = `Completed tasks: ${result}`
 };
 
-// this is not working,yet...
-const forTransition = (item, valueTo) =>
+const animate = (item, valueTo) =>
   new Promise(resolve => {
-    item.style.transform = `scaleY(${valueTo})`;
-    const transitionEnd = (trEvent) => {
-      if (trEvent.propertyName !== 'transform') return;
-      item.removeEventListener('transitionend', transitionEnd);
-      resolve();
-    };
-    item.addEventListener('transitionend', transitionEnd);
+    item.style.opacity = `${valueTo}`;
+    const transitionEnded = event => {
+      console.log(event.propertyName);
+      if (event.propertyName !== 'opacity') {
+        return;
+      }
+      item.removeEventListener('transitionend', transitionEnded);
+      resolve();     
+    }
+    item.addEventListener('transitionend', transitionEnded);
   });
 
-async function animate(item, valueFrom, valueTo) {
-  item.style.transform = `scaleY(${valueFrom})`;
-  await forTransition(item, valueTo);
-}
-
-const addNewPending = () => {
+const addNewPending = async () => {
   const task = input.value || placeholder;
   input.value = '';
   const newItem = createItem(task, pendingList);
   pendingList.insertAdjacentElement('afterbegin', newItem);
-  animate(newItem, 0, 1);
+  // animation missing
   updateLocalStorageEntry();
 };
 
-function ClickedToCompleted() {
+async function ClickedToCompleted() {
   const task = this.nextSibling.textContent;
   const parent = this.parentElement;
-  animate(parent, 1, 0);
+  await animate(parent, 0);
   parent.remove();
   const newItem = createItem(task, completedList);
   completedList.insertAdjacentElement('afterbegin', newItem);
-  animate(newItem, 0, 1);
+    // animation missing
   updateLocalStorageEntry();
 };
 
-function deleteClickedTask() {
+async function deleteClickedTask() {
   const task = this.previousSibling.textContent;
   const parent = this.parentElement;
-  animate(parent, 1, 0);
+  await animate(parent, 0);
   parent.remove();
   updateLocalStorageEntry();
 }
