@@ -144,8 +144,7 @@ const updateMessages = (pending, completed) => {
 const animate = (item, valueTo) =>
   new Promise(resolve => {
     item.style.opacity = `${valueTo}`;
-    const transitionEnded = event => {
-      console.log(event.propertyName);
+    const transitionEnded = event => {      
       if (event.propertyName !== 'opacity') {
         return;
       }
