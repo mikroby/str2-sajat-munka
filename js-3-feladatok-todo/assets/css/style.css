@@ -155,11 +155,21 @@ body{
 }
 
 .pending{
-  background-color: rgba(77, 144, 253,0.2);    
+  background-color: rgba(77, 144, 253,0.2);  
 }
 .completed{
   background-color: rgba(221, 221, 221,0.75);
   text-decoration: line-through;
+}
+
+@keyframes fadein {
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:100%;
+  }
+  
 }
 
 .delete--btn{

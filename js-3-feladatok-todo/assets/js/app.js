@@ -141,9 +141,9 @@ const updateMessages = (pending, completed) => {
   completedMessage.textContent = `Completed tasks: ${result}`
 };
 
-const animate = (item, valueTo) =>
+const animate = (item, valueTo='') =>
   new Promise(resolve => {
-    item.style.opacity = `${valueTo}`;
+    if (valueTo!=='') {item.style.opacity = `${valueTo}`};
     const transitionEnded = event => {
       if (event.propertyName !== 'opacity') {
         return;
