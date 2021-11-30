@@ -493,10 +493,10 @@
       "address": "263 Morrow Place"
     },
     {
-      "id": 83,
       "name": "Tom Critcher",
       "emailAddress": "tcritcher2a@technorati.com",
-      "address": "944 Waubesa Drive"
+      "address": "944 Waubesa Drive",
+      "id": 83
     },
     {
       "id": 84,
@@ -589,10 +589,10 @@
       "address": "75 Sundown Avenue"
     },
     {
-      "id": 99,
       "name": "Waverly Radmore",
       "emailAddress": "wradmore2q@ca.gov",
-      "address": "10 Northwestern Street"
+      "address": "10 Northwestern Street",
+      "id": 99
     },
     {
       "name": "Gusty Climar",

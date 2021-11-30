@@ -1,10 +1,11 @@
 {
     "liveServer.settings.ignoreFiles": [
+        ".vscode/settings.json",
         "db/users.json",
         "db/sets.json",
         "assets/*.*"
         
     ],
-    "liveServer.settings.CustomBrowser" : "chrome"    
+    "liveServer.settings.CustomBrowser": "chrome"
     
 }

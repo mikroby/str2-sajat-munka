@@ -19,7 +19,7 @@
 .modal{       
     position: relative;    
     width: 30%;
-    height: 15%;
+    height: 7rem;
     left:-30%;    
     transition: left 0.5s ease-in-out;    
     word-break: keep-all;
@@ -39,8 +39,12 @@
     left:35%;   
 }
 
-@media screen and (max-width:560px) {    
+@media screen and (max-width:767px) {    
     .modal{        
-        width: 100%;
+        width: 50%;
+        left:-50%;
+    }
+    .modal--appear{    
+        left:25%;   
     }
 }
