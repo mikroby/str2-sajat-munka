@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.icon{
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  background-color: cornflowerblue;
+  height:4.5rem;
+  width: 4.5rem;  
+  font-size: 3.5rem;  
+  font-weight: 900;
+  font-family: 'Nunito',sans-serif;  
+  color: white;
+  border-radius: 1rem;
+  margin: 0 auto 1.5rem;    
+}
+
+.form-control {
+  border-radius: 0;
+  padding: 1.4rem 0.6rem; 
+}
+
+#email{
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius:0.3rem;
+  border-bottom-color: transparent;
+}
+#password{
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  top: -2px;
+}
