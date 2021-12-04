@@ -26,7 +26,7 @@
   border-bottom-color: transparent;
 }
 #password{
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius:0.3rem;
+  border-bottom-left-radius:0.3rem;
   top: -2px;
 }
