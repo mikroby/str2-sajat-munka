@@ -1,0 +1,121 @@
+/* colors */
+:root {
+  --yellow: #fdcc52;
+  --white: #ffffff;
+  --darkgray: #222122;
+  --lightgray: #d7bacb;
+  --gray-menu-border: #d8d6d6;
+  --black: #000000;
+
+}
+
+/* fonts */
+@font-face {
+  font-family: 'muli';
+  src: url('../font/Mulish-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('../font/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'catamaran';
+  src: url('../font/Catamaran-Thin.ttf');
+}
+
+footer,
+p {
+  font-family: 'muli', Helvetica, Arial, sans-serif;
+}
+
+.nav-link {
+  font-family: 'lato', Helvetica, Arial, sans-serif;
+  font-variant: small-caps;
+}
+
+.btn {
+  color: var(--white);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: background-color 0.3s ease-in-out;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: var(--yellow);
+  color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+  font-family: 'catamaran', Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+  /* font-size: 16px; */
+}
+
+header {
+  background-image: url('../img/bg-pattern.png'), linear-gradient(to right, #dc2231, #7b4296);
+  background-repeat: repeat;
+  color: var(--white);
+  font-weight: 100;
+}
+
+h1 {
+  margin: 7rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  color: var(--yellow);
+}
+
+.nav-link {
+  color: var(--lightgray)
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: var(--white);
+}
+
+.navbar-toggler small,
+.navbar-toggler {
+  color: var(--lightgray)
+}
+
+.image-box {  
+  position: relative;
+  width:25rem;
+}
+
+.phone {  
+  width: 100%;  
+}
+
+.inlet {
+  position: absolute;
+  width: 85%;
+  top:12.5%;
+  left:7.5%;
+  border-radius: 2%;  
+}
+
+.jumbotron {
+  background-color: var(--yellow);
+  color: var(--black);
+  padding: 7rem 0;
+}
+
+.store-links{
+  width: 13rem;
+}
