@@ -46,7 +46,7 @@ p {
 
 .btn:hover {
   background-color: var(--yellow);
-  color: var(--white);
+  color: var(--white);  
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -93,29 +93,35 @@ h1 {
   color: var(--lightgray)
 }
 
-.image-box {  
+.image-box {
   position: relative;
-  width:25rem;
+  width: 25rem;
 }
 
-.phone {  
-  width: 100%;  
+.phone {
+  width: 100%;
 }
 
 .inlet {
   position: absolute;
   width: 85%;
-  top:12.5%;
-  left:7.5%;
-  border-radius: 2%;  
+  top: 12.5%;
+  left: 7.5%;
+  border-radius: 2%;
 }
 
-.jumbotron {
+#download .jumbotron{
   background-color: var(--yellow);
   color: var(--black);
   padding: 7rem 0;
 }
 
-.store-links{
+.store-links {
   width: 13rem;
+}
+
+#features .jumbotron{
+  background-color: var(--white);
+  color: var(--black);
+  padding: 7rem 0;
 }
