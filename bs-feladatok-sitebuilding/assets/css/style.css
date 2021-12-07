@@ -125,3 +125,12 @@ h1 {
   color: var(--black);
   padding: 7rem 0;
 }
+.line{  
+  width:120px;
+  height: 2px;
+  background-color: #dcdada;
+}
+.iconify{
+  color:#ac3063;
+  font-size: 7rem;
+}
