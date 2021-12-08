@@ -22,7 +22,7 @@
       <button class="navbar-toggler border text-light" type="button" data-toggle="collapse" data-target="#mainMenu"
         aria-expanded="false" aria-label="Toggle navigation">
         <small>Menu</small>
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon iconify-inline" data-icon="simple-line-icons:menu"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="mainMenu">
@@ -42,45 +42,54 @@
     </div>
   </nav>
 
-  <header class="container-fluid">
-    <div class="col-12 text-center mb-5 pb-5">
-      <h1 class="h3 mb-5 text-center">
-        New Age is an app landing page that
-        will help you beautifully showcase
-        your new mobile app, or anything else!
-      </h1>
+  <header class="container-fluid py-5 m-0">
+    <div class="container my-5">
+      <div class="row d-flex flex-column flex-md-row justify-content-center">
 
-      <button type="button" class="btn btn-lg rounded-pill border px-5 mb-5 py-3">start now for free!</button>
+        <div class="col-md-5 d-flex flex-column">
+          <div class="text-center text-md-left my-auto">
+            <h1 class="h3 mb-5 font-weight-light">
+              New Age is an app landing page that
+              will help you beautifully showcase
+              your new mobile app, or anything else!
+            </h1>
+            <div class="btn btn-lg rounded-pill border mb-5">start now for free!</div>
+            <!-- <button type="button" class="btn btn-lg rounded-pill border mb-5">start now for free!</button> -->
+          </div>
+        </div>
 
-      <div class="image-box mt-5 mx-auto px-0">
-        <img class="phone" src="./assets/img/phone.png" alt="phone">
-        <img class="inlet" src="./assets/img/demo-screen-1.jpg" alt="demo screen">
+        <div class="col-md-6 mt-5">
+          <div class="image-box mx-auto">
+            <img class="phone" src="./assets/img/phone.png" alt="phone">
+            <img class="inlet" src="./assets/img/demo-screen-1.jpg" alt="demo screen">
+          </div>
+        </div>
+
       </div>
-
     </div>
   </header>
 
   <main>
     <section id="download">
       <div class="jumbotron jumbotron-fluid mb-0">
-        <div class="container text-center col-12">
+        <div class="container text-center">
           <h2 class="display-4">Discover what all the<br>buzz is about!</h2>
           <p class="lead px-5">Our app is available on any mobile device! Download now to
             get started!</p>
-        </div>
 
-        <div class="d-flex flex-column mt-4">
-          <a class="mx-auto mb-4" href="https://play.google.com/store" target="_blank">
-            <img class="store-links" src="./assets/img/google-play-badge.svg" alt="link to google play">
-          </a>
-          <a class="mx-auto" href="https://www.apple.com/hu/app-store/" target="_blank">
-            <img class="store-links" src="./assets/img/app-store-badge.svg" alt="link to app store">
-          </a>
+          <div class="row d-flex flex-column flex-md-row justify-content-center mt-4">
+            <a class="mb-4 mx-1" href="https://play.google.com/store" target="_blank">
+              <img class="store-links" src="./assets/img/google-play-badge.svg" alt="link to google play">
+            </a>
+            <a class="mx-1" href="https://www.apple.com/hu/app-store/" target="_blank">
+              <img class="store-links" src="./assets/img/app-store-badge.svg" alt="link to app store">
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="">
+    <section id="features" class="mb-5">
       <div class="jumbotron jumbotron-fluid mb-0">
         <div class="container text-center col-12">
           <h2 class="display-4 px-5">Unlimited Features, Unlimited Fun</h2>
@@ -95,7 +104,7 @@
 
         <div class="row d-flex flex-column flex-md-row justify-content-center">
 
-          <div class="col-md-4">
+          <div class="col-md-4 mb-5">
             <div class="image-box mx-auto">
               <img class="phone" src="./assets/img/phone.png" alt="phone">
               <img class="inlet" src="./assets/img/demo-screen-1.jpg" alt="demo screen">
@@ -106,14 +115,14 @@
 
             <div class="row d-flex flex-column flex-md-row justify-content-center">
               <div class="col-md-6 text-center my-5">
-                <span class="iconify" data-icon="simple-line-icons:screen-smartphone"></span>
+                <span class="iconify icons" data-icon="simple-line-icons:screen-smartphone"></span>
                 <h3 class="h1 mt-3">Device Mockups</h3>
                 <p class="lead text-muted">Ready to use HTML/CSS device<br>
                   mockups, no Photoshop required!</p>
               </div>
 
               <div class="col-md-6 text-center my-5">
-                <span class="iconify" data-icon="simple-line-icons:camera"></span>
+                <span class="iconify icons" data-icon="simple-line-icons:camera"></span>
                 <h3 class="h1 mt-3">Flexible Use</h3>
                 <p class="lead text-muted">Put an image, video, animation, or<br>
                   anything else in the screen!</p>
@@ -122,14 +131,14 @@
 
             <div class="row d-flex flex-column flex-md-row justify-content-center">
               <div class="col-md-6 text-center my-5">
-                <span class="iconify" data-icon="simple-line-icons:present"></span>
+                <span class="iconify icons" data-icon="simple-line-icons:present"></span>
                 <h3 class="h1 mt-3">Free to Use</h3>
                 <p class="lead text-muted">As always, this theme is free to<br>
                   download and use for any purpose!</p>
               </div>
 
               <div class="col-md-6 text-center my-5">
-                <span class="iconify" data-icon="simple-line-icons:lock-open"></span>
+                <span class="iconify icons" data-icon="simple-line-icons:lock-open"></span>
                 <h3 class="h1 mt-3">Open Source</h3>
                 <p class="lead text-muted">Since this theme is MIT licensed, you<br>
                   can use it commercially!</p>
@@ -143,18 +152,124 @@
       </div>
     </section>
 
-    <section id="contact" class="">
+    <section class="big-screen position-relative mt-5">
+      <div class="filter"></div>
 
-      
+      <div class="container text-left position-relative">
+        <h2 class="display-4 text-white mb-4">Stop waiting.<br>
+          Start building.</h2>
 
-
-
+        <button type="button" class="btn btn-lg rounded-pill border">
+          let's get started!</button>
+      </div>
     </section>
 
+    <section id="contact">
+      <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="container text-center">
+          <h2 class="display-4">We
+            <span class="iconify heart" data-icon="entypo:heart"></span>
+            new friends!
+          </h2>
+
+          <div class="row justify-content-center">
+            <a href="https://twitter.com" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+              <div class="social-media-icons twitter mx-2">
+                <i class="fab fa-twitter"></i>
+              </div>
+            </a>
+            <a href="https://facebook.com" target="_blank" data-toggle="tooltip" data-placement="bottom"
+              title="Facebook">
+              <div class="social-media-icons facebook mx-2">
+                <i class="fab fa-facebook-f"></i>
+              </div>
+            </a>
+            <a href="https://gmail.com" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Gmail">
+              <div class="social-media-icons google mx-2">
+                <i class="fab fa-google-plus-g"></i>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="bottom">
+  <footer class="container-fluid text-center py-5">
+    <p class="mb-1">
+      &copy Your Website 2018. All Rights Reserved.
+    </p>
+    <a href="" class="px-2" data-toggle="modal" data-target="#privacyModal">Privacy</a>
+    <a href="" class="px-2" data-toggle="modal" data-target="#termsModal">Terms</a>
+    <a href="" class="px-2" data-toggle="modal" data-target="#faqModal">FAQ</a>
   </footer>
+
+
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3 font-weight-bold" id="privacyModalLabel">Privacy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          When you use our services, you’re trusting us with your information. We understand this is a big
+          responsibility and work hard to protect your information and put you in control.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3 font-weight-bold" id="termsModalLabel">Terms of use</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Your use of the services constitutes your agreement to these Terms of Use. If you do not agree with these
+          Terms of Use, please do not use the services. Please check this page periodically for any modifications. Your
+          use of any of the services following the posting of changes constitutes your acceptance of the changes.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title h3 font-weight-bold" id="faqModalLabel">FAQ</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          1. is this free?
+          <p>Yes it is.</p>
+          2. can I participate in further development?
+          <p>Yes, it is Open Source.</p>
+          3. is it available for Windows Phone?
+          <p>No, only for iOS and Android.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -167,10 +282,7 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"></script>
 
-
-  <!-- <script type="module">
-    import "./assets/js/app.js";
-  </script> -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 
