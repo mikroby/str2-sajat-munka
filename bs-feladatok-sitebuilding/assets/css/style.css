@@ -13,6 +13,11 @@
   --dark-blue-opacity-90: #395999e6;
   --red-opacity-90: #de4b38e6;
   --footer-grey: #524e4e;
+  --icons: #ac3063;
+  --filter: rgba(0, 0, 0, 0.5);
+  --line: #dcdada;
+  --gradient-from:#dc2231;
+  --gradient-to:#7b4296;
 }
 
 /* fonts */
@@ -52,7 +57,8 @@ p {
   letter-spacing: 0.2rem;
   transition: background-color 0.3s ease-in-out;
   padding: 1rem 2rem;
-  border:1px solid var(--white);
+  border: 1px solid var(--white);
+  outline: none;
 }
 
 .btn:hover,
@@ -60,6 +66,7 @@ p {
   background-color: var(--yellow);
   color: var(--white);
   border-color: var(--yellow);
+  outline: none;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -68,13 +75,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   user-select: none;
   /* font-size: 16px; */
 }
 
 header {
-  background-image: url('../img/bg-pattern.png'), linear-gradient(to right, #dc2231, #7b4296);
+  background-image: url('../img/bg-pattern.png'), linear-gradient(to right, var(--gradient-from), var(--gradient-to));
   background-repeat: repeat;
   color: var(--white);
 }
@@ -83,12 +90,17 @@ header {
   box-sizing: border-box;
 }
 
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
 .navbar-brand {
   color: var(--yellow);
 }
 
-.nav-link {
-  color: var(--lightgray)
+.nav-link,
+.menu {
+  color: var(--lightgray);
 }
 
 .navbar-brand:hover,
@@ -96,14 +108,24 @@ header {
   color: var(--white);
 }
 
-.navbar-toggler small,
-.navbar-toggler,
-.navbar-toggler-icon {
-  color: var(--lightgray)
-}
-
 .navbar-toggler-icon {
   font-size: 0.5rem;
+}
+
+.outScrolled {
+  background-color: var(--white);
+  color: var(--darkgray);
+}
+
+.outScrolled:hover {
+  background-color: var(--white);
+  color: var(--yellow);
+}
+
+.navbar-brand,
+.nav-link,
+.menu {
+  background-color: transparent;
 }
 
 .image-box {
@@ -126,7 +148,7 @@ header {
 #download .jumbotron {
   background-color: var(--yellow);
   color: var(--black);
-  padding: 7rem 0;
+  padding: 5rem 0;
 }
 
 .store-links {
@@ -136,17 +158,17 @@ header {
 #features .jumbotron {
   background-color: var(--white);
   color: var(--black);
-  padding: 7rem 0;
+  padding: 5rem 0;
 }
 
 .line {
   width: 120px;
   height: 2px;
-  background-color: #dcdada;
+  background-color: var(--line);
 }
 
 .icons {
-  color: #ac3063;
+  color: var(--icons);
   font-size: 5rem;
 }
 
@@ -162,7 +184,7 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--filter);
   top: 0;
 }
 
