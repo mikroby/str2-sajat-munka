@@ -1,0 +1,27 @@
+.big-screen {
+  background-image: url(var(bgImages-bigScreen));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 15rem 0;
+  position: relative;
+  margin-top: 3rem;
+  text-align: left;
+  color: var(colors-white);
+
+  & div:nth-child(2) {
+    position: relative;
+
+    & h2 {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(colors-filter);
+  top: 0;
+}

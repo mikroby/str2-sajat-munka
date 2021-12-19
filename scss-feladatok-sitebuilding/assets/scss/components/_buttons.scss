@@ -1,0 +1,16 @@
+.btn {
+  color: var(colors-white);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: background-color 0.3s ease-in-out;
+  padding: 1rem 2rem;
+  border: 1px solid var(colors-white);  
+
+  &:hover,
+  &:active {
+    background-color: var(colors-yellow);
+    color: var(colors-white);
+    border-color: var(colors-yellow);
+  }
+}

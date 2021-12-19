@@ -1,0 +1,12 @@
+@function get-keys($string, $separator: "-") {
+  $keys: ();
+  $index: str-index($string, $separator);
+  @while $index {
+    $key: str-slice($string, 1, $index - 1);
+    $keys: append($keys, $key);
+    $string: str-slice($string, $index + 1);
+    $index: str-index($string, $separator);
+  }
+  $keys: append($keys, $string);
+  @return $keys;
+}

@@ -1,0 +1,44 @@
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+
+  &.outScrolled {
+    background-color: var(colors-white);
+  }
+}
+
+.navbar-brand {
+  font-family: $fonts-catamaran;
+  color: var(colors-yellow);
+
+  &:hover {
+    color: var(colors-white);
+  }
+}
+
+.nav-link {
+  font-family: $fonts-lato;
+  font-variant: small-caps;
+  color: var(colors-lightgray);
+
+  &:hover {
+    color: var(colors-white);
+  }
+}
+
+.menu {
+  color: var(colors-lightgray);
+}
+
+.navbar-toggler-icon {
+  font-size: 0.5rem;
+}
+
+.outScrolled {
+  color: var(colors-darkgray);
+
+  &:hover {
+    color: var(colors-yellow);
+  }
+}

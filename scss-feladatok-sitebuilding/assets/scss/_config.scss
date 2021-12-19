@@ -1,0 +1,47 @@
+$config: (
+  colors: (
+    "yellow": #fdcc52,
+    "white": #ffffff,
+    "darkgray": #222122,
+    "lightgray": #d7bacb,
+    "gray-menu-border": #d8d6d6,
+    "black": #000000,
+    "heart": #de4b38,
+    "google": #de4b38,
+    "google90": #de4b38e6,
+    "twitter": #3e9cd6,
+    "twitter90": #3e9cd6e6,
+    "facebook": #395999,
+    "facebook90": #395999e6,
+    "footerGray": #524e4e,
+    "icons": #ac3063,
+    "filter": #00000080,
+    "line": #dcdada,
+    "gradientFrom": #dc2231,
+    "gradientTo": #7b4296,
+    "textMuted": #6e767e,
+  ),
+  bgImages: (
+    header: "../img/bg-pattern.png",
+    bigScreen: "../img/bg-cta.jpg",
+  ),
+);
+
+$fonts-muli: "muli", Helvetica, Arial, sans-serif;
+$fonts-lato: "lato", Helvetica, Arial, sans-serif;
+$fonts-catamaran: "catamaran", Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: "muli";
+  src: url("../font/Mulish-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("../font/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: "catamaran";
+  src: url("../font/Catamaran-Thin.ttf");
+}

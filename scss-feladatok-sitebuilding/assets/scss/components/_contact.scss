@@ -1,0 +1,55 @@
+#contact .jumbotron {
+  background-color: var(colors-yellow);
+  color: var(colors-black);
+  padding: 7rem 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.heart {
+  color: var(colors-heart);
+  font-size: 4.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.social-media{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &-icons {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    color: var(colors-white);
+    font-size: 2.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem;
+  }
+}
+
+.twitter {
+  background-color: var(colors-twitter90);
+
+  &:hover {
+    background-color: var(colors-twitter);
+  }
+}
+
+.facebook {
+  background-color: var(colors-facebook90);
+
+  &:hover {
+    background-color: var(colors-facebook);
+  }
+}
+
+.google {
+  background-color: var(colors-google90);
+
+  &:hover {
+    background-color: var(colors-google);
+  }
+}

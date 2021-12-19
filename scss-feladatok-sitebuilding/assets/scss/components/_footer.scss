@@ -1,0 +1,20 @@
+footer {
+  font-family: $fonts-muli;
+  background-color: var(colors-darkgray);
+  color: var(colors-footerGray);
+  padding: 3rem 0;
+  text-align: center;
+
+  & p {
+    margin-bottom: 0.25rem;
+  }
+
+  & a {
+    color: var(colors-footerGray);
+    padding: 0 0.5rem;
+
+    &:hover {
+      color: var(colors-yellow);
+    }
+  }
+}

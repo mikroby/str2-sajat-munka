@@ -1,0 +1,29 @@
+html {
+  user-select: none;
+
+  @media screen and (max-width: 470px) {
+    font-size: 12px;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+p {
+  font-family: $fonts-muli;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: $fonts-catamaran;
+}
