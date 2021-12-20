@@ -5,7 +5,8 @@
   letter-spacing: 0.2rem;
   transition: background-color 0.3s ease-in-out;
   padding: 1rem 2rem;
-  border: 1px solid var(colors-white);  
+  border: 1px solid var(colors-white);
+  font-family: $fonts-lato;
 
   &:hover,
   &:active {

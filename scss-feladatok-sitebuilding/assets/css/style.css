@@ -49,6 +49,7 @@ p {
   transition: background-color 0.3s ease-in-out;
   padding: 1rem 2rem;
   border: 1px solid #ffffff;
+  font-family: "lato", Helvetica, Arial, sans-serif;
 }
 .btn:hover, .btn:active {
   background-color: #fdcc52;
@@ -79,6 +80,18 @@ p {
   border-radius: 1.5%;
 }
 
+@font-face {
+  font-family: "muli";
+  src: url("../font/Mulish-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "lato";
+  src: url("../font/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "catamaran";
+  src: url("../font/Catamaran-Thin.ttf");
+}
 .navbar {
   transition: background-color 0.3s ease-in-out;
   position: fixed;

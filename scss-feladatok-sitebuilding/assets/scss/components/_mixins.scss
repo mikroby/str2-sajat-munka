@@ -1,0 +1,12 @@
+@import "../functions/functions";
+@import "../config";
+
+@mixin scrolled {
+  .outScrolled {
+    color: var(colors-darkgray);
+
+    &:hover {
+      color: var(colors-yellow);
+    }
+  }
+}
