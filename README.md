@@ -1,1 +1,1 @@
-# str2-saját-munka tanfolyamon belül
+# Struktúraváltó 2.0 tanfolyam projekt-munkái
