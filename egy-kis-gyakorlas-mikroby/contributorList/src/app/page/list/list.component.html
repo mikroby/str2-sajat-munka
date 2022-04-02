@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="fixed-top bg-light shadow-sm col-12">
+      <header class="h4 my-3 d-flex align-items-center">
+        <div class="col ml-5">Top Contributors</div>
+        <div class="input-group input-group-sm col-2 mr-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">cards / page</span>
+          </div>
+          <input class="form-control" type="number" name="perPage"
+            min="12" max="100" step="4" [(ngModel)]="perPage"
+            (change)="onChange()">
+        </div>
+        <div class="h5 col mr-3 text-right">{{from}} - {{to}}</div>
+
+        <div class="h5 bg-white rounded-circle shadow p-1 text-muted scroll
+          d-flex justify-content-center align-items-center"
+          (click)="scrollDown()">
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+      </header>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+    <ng-container *ngFor="let item of list$ | async; index as i">
+      <app-card [contributor]="item" [index]="from+i"></app-card>
+    </ng-container>
+  </div>
+</div>
+
+<div class="container my-4" id="bottom">
+  <div class="row">
+    <footer class="fixed-bottom bg-light d-flex align-items-center col-12">
+      <div class="btn-group col-2 my-3 offset-5" [hidden]="!(list$ | async)">
+        <button class="btn btn-outline-secondary btn-sm col"
+          (click)="previousPage()">
+          previous
+        </button>
+        <button class="btn btn-outline-secondary btn-sm col"
+          (click)="nextPage()">
+          next
+        </button>
+      </div>
+      
+        <div class="h5 bg-white rounded-circle shadow p-1 text-muted scroll
+          d-flex justify-content-center align-items-center ml-auto mr-0"
+          (click)="scrollUp()">
+          <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </div>
+      
+    </footer>
+  </div>
+</div>

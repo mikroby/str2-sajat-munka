@@ -1,0 +1,7 @@
+.moving {
+  transition: all 0.3s ease-in-out;
+}
+
+.moving:hover {
+  transform: translateY(-0.3rem);
+}

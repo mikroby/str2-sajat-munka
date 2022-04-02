@@ -1,0 +1,23 @@
+<div class="card rounded-lg border-0 shadow m-2 moving">
+
+  <div class="card-body p-4 h-100">
+    <img class="w-75 img-thumbnail shadow" [src]="contributor.avatar_url" alt="avatar">
+    <span class="float-right">
+      <i class="fa fa-globe fa-2x" aria-hidden="true"></i>
+    </span>
+    <h5 class="card-title mt-3 mb-1">{{contributor.login}}</h5>
+    <p class="card-text text-muted">{{contributor.contributions}} commits
+      <span class="float-right">#{{index}}.</span>
+    </p>
+  </div>
+
+  <button class="btn btn-sm btn-outline-primary mx-auto mb-4 shadow-sm"
+    (click)="showDetails(contributor.login)">
+    VIEW REPOSITORIES
+  </button>
+  <!-- <button class="btn btn-sm btn-outline-primary mx-auto mb-4 shadow-sm"
+    [routerLink]="['/', 'details', contributor.login]">
+    VIEW REPOSITORIES
+  </button> -->
+
+</div>
