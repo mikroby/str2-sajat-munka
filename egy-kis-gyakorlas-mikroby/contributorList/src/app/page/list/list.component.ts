@@ -51,6 +51,7 @@ export class ListComponent implements OnInit, AfterViewChecked {
 
   onChange(): void {
     Config.perPage = this.perPage
+    this.ngOnInit()
   }
 
   scrollDown(): void {

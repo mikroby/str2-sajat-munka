@@ -3,21 +3,26 @@
     <div class="fixed-top bg-light shadow-sm col-12">
       <header class="h4 my-3 d-flex align-items-center">
         <div class="col ml-5">Top Contributors</div>
-        <div class="input-group input-group-sm col-2 mr-3">
+        <div class="input-group input-group-sm col-2">
           <div class="input-group-prepend">
             <span class="input-group-text">cards / page</span>
           </div>
-          <input class="form-control" type="number" name="perPage"
+          <input class="form-control text-center" type="number" name="perPage"
             min="12" max="100" step="4" [(ngModel)]="perPage"
             (change)="onChange()">
+            <!-- <div class="input-group-append">              
+              <button class="btn btn-outline-secondary">
+                refresh
+              </button>
+            </div> -->
+
         </div>
         <div class="h5 col mr-3 text-right">{{from}} - {{to}}</div>
 
-        <div class="h5 bg-white rounded-circle shadow text-muted scroll
-          d-flex justify-content-center align-items-center"
-          (click)="scrollDown()">
+        <div class="bg-white shadow text-muted scroll" (click)="scrollDown()">
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
+
       </header>
     </div>
   </div>
@@ -35,24 +40,20 @@
   <div class="row">
     <footer class="fixed-bottom bg-light d-flex align-items-center col-12">
       <div class="btn-group col-2 my-3 offset-5" [hidden]="!(list$ | async)">
-        <button class="btn btn-outline-secondary btn-sm col"
-          (click)="previousPage()">
+        <button class="btn btn-outline-secondary btn-sm col" (click)="previousPage()">
           previous
         </button>
-        <button class="btn btn-outline-secondary btn-sm col"
-          (click)="nextPage()">
+        <button class="btn btn-outline-secondary btn-sm col" (click)="nextPage()">
           next
         </button>
       </div>
-      
-        <div class="bg-white rounded-circle shadow text-muted scroll
-          d-flex justify-content-center align-items-center ml-auto mr-0"
-          (click)="scrollUp()">
-          <span class="h5">
-            <i class="fa fa-chevron-up" aria-hidden="true"></i>
-          </span>
+
+      <div class="ml-auto mr-0">
+        <div class="bg-white shadow text-muted scroll" (click)="scrollUp()">
+          <i class="fa fa-chevron-up" aria-hidden="true"></i>
         </div>
-      
+      </div>
+
     </footer>
   </div>
 </div>

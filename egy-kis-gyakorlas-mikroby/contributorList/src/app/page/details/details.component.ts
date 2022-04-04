@@ -1,6 +1,8 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
+import { Config } from 'src/app/model/config';
 import { Repo } from 'src/app/model/repo';
 import { ContributorService } from 'src/app/service/contributor.service';
 
@@ -19,6 +21,7 @@ export class DetailsComponent implements OnInit {
     private contributorService: ContributorService,
     private activatedRoute: ActivatedRoute,
     private router:Router,
+    private viewportScroller: ViewportScroller,
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +29,16 @@ export class DetailsComponent implements OnInit {
   
   backToPrevPage():void{    
     this.router.navigate(['/'])
+  }
+
+  scrollDown(): void {
+    Config.scrollToPrevious = false
+    this.viewportScroller.scrollToAnchor('bottom')
+  }
+  
+  scrollUp(): void {
+    Config.scrollToPrevious = false
+    this.viewportScroller.scrollToPosition([0, 0])
   }
   
 }

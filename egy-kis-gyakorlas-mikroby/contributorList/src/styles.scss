@@ -11,8 +11,15 @@ html {
 .scroll {
   width:2rem;
   height: 2rem;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border-radius: 50%;
+  transition: all 0.1s linear;
 }
 
 .scroll:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
