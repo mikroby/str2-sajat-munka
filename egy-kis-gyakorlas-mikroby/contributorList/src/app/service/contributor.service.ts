@@ -30,7 +30,7 @@ export class ContributorService {
 
   getOne(name: string): Observable<Repo[]> {
     return this.http.get<Repo[]>
-      (`${this.apiUrl}${this.preFix}${name}${this.postFix}?page=1&per_page=100`)
+      (`${this.apiUrl}${this.preFix}${name}${this.postFix}?per_page=100`)
   }
 
 }

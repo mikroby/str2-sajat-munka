@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="col-12">
-        <table class="table table-striped my-3">
+        <table class="table table-striped table-hover my-3">
           <thead class="bg-light shadow-sm">
             <tr>
               <th class="text-center">#</th>
@@ -35,8 +35,9 @@
               <th class="text-center">Updated</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let detail of repository | datesorter:'updated_at':-1 index as i">
+          <tbody>               
+              <tr *ngFor="let detail of repository | datesorter:'updated_at':-1 index as i"
+               (click)="openRepo(detail.html_url)">               
               <td class="text-center">{{ i+1 }}</td>
               <td>{{ detail.name }}</td>
               <td class="text-center">
@@ -49,7 +50,7 @@
               </td>
               <td class="text-center">{{ detail.stargazers_count }}</td>
               <td class="text-center">{{ detail.updated_at | date:'MMM d, y, HH:mm:ss' }}</td>
-            </tr>
+            </tr>         
           </tbody>
         </table>
       </div>

@@ -6,6 +6,7 @@ export class Repo {
   fork: boolean = false
   stargazers_count: number = 0
   updated_at: string = ''
+  html_url: string = ''
 }
 
   //  {

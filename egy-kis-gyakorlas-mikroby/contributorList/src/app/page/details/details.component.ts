@@ -20,14 +20,14 @@ export class DetailsComponent implements OnInit {
   constructor(
     private contributorService: ContributorService,
     private activatedRoute: ActivatedRoute,
-    private router:Router,
+    private router: Router,
     private viewportScroller: ViewportScroller,
   ) { }
 
   ngOnInit(): void {
   }
-  
-  backToPrevPage():void{    
+
+  backToPrevPage(): void {
     this.router.navigate(['/'])
   }
 
@@ -35,10 +35,14 @@ export class DetailsComponent implements OnInit {
     Config.scrollToPrevious = false
     this.viewportScroller.scrollToAnchor('bottom')
   }
-  
+
   scrollUp(): void {
     Config.scrollToPrevious = false
     this.viewportScroller.scrollToPosition([0, 0])
   }
-  
+
+  openRepo(url: string): void {
+    window.open(url, '_blank')
+  }
+
 }
