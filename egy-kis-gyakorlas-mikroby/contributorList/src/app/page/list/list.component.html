@@ -35,11 +35,15 @@
 <div class="container my-4" id="bottom">
   <div class="row">
     <footer class="fixed-bottom bg-light d-flex align-items-center col-12">
-      <div class="btn-group col-2 my-3 offset-5" [hidden]="!(list$ | async)">
-        <button class="btn btn-outline-secondary btn-sm col" (click)="previousPage()">
+      <div class="btn-group col-2 my-3 offset-5">
+        <button class="btn btn-outline-secondary btn-sm col"
+          (click)="previousPage()"
+          [disabled]="!(list$ | async)">
           previous
         </button>
-        <button class="btn btn-outline-secondary btn-sm col" (click)="nextPage()">
+        <button class="btn btn-outline-secondary btn-sm col"
+          (click)="nextPage()"
+          [disabled]="!(list$ | async)">
           next
         </button>
       </div>
