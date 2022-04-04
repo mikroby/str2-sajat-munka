@@ -3,23 +3,17 @@
     <div class="fixed-top bg-light shadow-sm col-12">
       <header class="h4 my-3 d-flex align-items-center">
         <div class="col ml-5">Top Contributors</div>
-        <div class="input-group input-group-sm col-2">
+        <div class="input-group input-group-sm col-2 grow">
           <div class="input-group-prepend">
             <span class="input-group-text">cards / page</span>
           </div>
           <input class="form-control text-center" type="number" name="perPage"
-            min="12" max="100" step="4" [(ngModel)]="perPage"
-            (change)="onChange()">
-            <!-- <div class="input-group-append">              
-              <button class="btn btn-outline-secondary">
-                refresh
-              </button>
-            </div> -->
-
+            min="12" max="100" step="4"
+            [(ngModel)]="perPage" (change)="onChange()">
         </div>
         <div class="h5 col mr-3 text-right">{{from}} - {{to}}</div>
 
-        <div class="bg-white shadow text-muted scroll" (click)="scrollDown()">
+        <div class="bg-white shadow text-muted scroll-button" (click)="scrollDown()">
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
 
@@ -29,11 +23,13 @@
 </div>
 
 <div class="container my-5">
+
   <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
     <ng-container *ngFor="let item of list$ | async; index as i">
       <app-card [contributor]="item" [index]="from+i"></app-card>
     </ng-container>
   </div>
+
 </div>
 
 <div class="container my-4" id="bottom">
@@ -49,7 +45,7 @@
       </div>
 
       <div class="ml-auto mr-0">
-        <div class="bg-white shadow text-muted scroll" (click)="scrollUp()">
+        <div class="bg-white shadow text-muted scroll-button" (click)="scrollUp()">
           <i class="fa fa-chevron-up" aria-hidden="true"></i>
         </div>
       </div>
