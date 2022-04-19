@@ -1,1 +1,1 @@
-# Struktúraváltó 2.0 tanfolyam projekt-munkái
+# Struktúraváltó 2.0 Front-End tanfolyam projekt-munkái
