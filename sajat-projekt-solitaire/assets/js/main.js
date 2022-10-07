@@ -1,24 +1,18 @@
 'use strict';
+import { moves, neighbors } from "./graphs.js"
 
 const header = document.querySelector('#game__header');
 const info = document.querySelector('#info');
 const pegNumber = document.querySelector('#pegNumber');
 const button = document.querySelector('.btn');
-
-
-const hit = (cell) => {
-  const hitSound = new Audio('assets/sound/hit.wav');
-  hitSound.volume = 0.5;
-  hitSound.play();
-  info.textContent = 'Talált!';
-}
-
+const fieldPattern = [3, 3, 7, 7, 7, 3, 3]
+let cells, firstMove
 
 const theEnd = () => {
+  info.textContent = 'VÉGE A JÁTÉKNAK.'
   button.textContent = 'Új játék';
   button.onclick = start;
 }
-
 
 const animateHeader = () => {
   header.classList.add('shock-header');
@@ -28,13 +22,7 @@ const animateHeader = () => {
   }, 510);
 }
 
-// -------------------------------------------------------------
-import { moves, neighbors } from "./graphs.js"
-
-let cells, firstMove
-
 const createField = () => {
-  const fieldPattern = [3, 3, 7, 7, 7, 3, 3]
   const template = []
   let from = 0
 
@@ -70,24 +58,28 @@ const showInfo = () => {
   pegNumber.textContent = pegs.length
 }
 
-function takeOne() {
+function take() {
   const taken = document.querySelector('.taken')
 
   if (taken) taken.classList.toggle('taken')
 
-  document.querySelectorAll('.transposable').forEach(cell =>
+  document.querySelectorAll('.transposable').forEach(cell => {
     cell.classList.remove('transposable')
-  )
-
-  this.classList.add('taken')
-
-  const transposables = moves[this.dataset.cell]
-  console.log(transposables);
-  transposables.forEach(position => {
-    cells[position].classList.toggle('transposable')
-    cells[position].addEventListener('click', transpose)
+    cell.removeEventListener('click', transpose)
   })
 
+  this.classList.toggle('taken')
+
+  markTransposables(this)
+}
+
+const markTransposables = (cell) => {
+  moves[cell.dataset.cell]
+    .filter(position => cells[position].classList.contains('empty'))
+    .forEach(position => {
+      cells[position].classList.toggle('transposable')
+      cells[position].addEventListener('click', transpose)
+    })
 }
 
 function transpose() {
@@ -101,49 +93,54 @@ function transpose() {
   const taken = document.querySelector('.taken')
   const current = taken.dataset.cell
 
-  const common = neighbors[current].filter(cell => neighbors[next].includes(cell))[0]
-  console.log('common: ', common)
-  cells[common].classList.replace('occupied', 'empty')
+  // kill the overtaken one
+  cells[commonNeighbor(current, next)].classList.replace('occupied', 'empty')
 
   this.classList.replace('empty', 'occupied')
   taken.classList.replace('occupied', 'empty')
 
-  setNextState()
-  prepareNextStep()
+  cleanup()
   showInfo()
   animateHeader()
+  markMoveables()
 }
 
-const setNextState = () =>
+const cleanup = () =>
   cells.forEach(cell => {
     cell.removeEventListener('click', transpose)
-    cell.removeEventListener('click', takeOne)
+    cell.removeEventListener('click', take)
     cell.classList.remove('transposable', 'moveable', 'taken')
   })
 
-const setMoveables = (positions) =>
-  positions.forEach(position => {
+const markMoveables = () =>
+  getAllPosition().forEach(position => {
     cells[position].classList.add('moveable')
-    cells[position].addEventListener('click', takeOne)
+    cells[position].addEventListener('click', take)
   });
 
-const getAllEmpty = () => {
-  const positions = []
-  document.querySelectorAll('.empty')
-    .forEach(cell => positions.push(moves[cell.dataset.cell]))
-  return [...new Set(positions.flat())]
+const commonNeighbor = (first, second) => {
+  return neighbors[first].filter(neighborOfFirst => neighbors[second].includes(neighborOfFirst))[0]
 }
 
-const prepareNextStep = () => {
-  const empty = getAllEmpty().filter(position => !(cells[position].classList.contains('empty')))
-  setMoveables(empty);
+const getAllPosition = () => {
+  const positions = []
+  document.querySelectorAll('.empty')
+    .forEach(empty =>
+      positions.push(moves[empty.dataset.cell]
+        .filter(position => cells[position].classList.contains('occupied'))
+        .filter(position => cells[commonNeighbor(empty.dataset.cell, position)].classList.contains('occupied'))
+      )
+    )
+  // remove duplicates
+  return [...new Set(positions.flat())]
 }
 
 const start = () => {
   initialize()
   showInfo()
-  prepareNextStep()
+  markMoveables()
 }
+
 
 // IIFE starter.
 (() => {
@@ -152,3 +149,17 @@ const start = () => {
 
   start()
 })()
+
+// for testing graph objects:
+// tester()
+// function tester() {
+//   initialize()
+//   cells.forEach(cell => cell.addEventListener('click', toggleColor))
+// }
+// function toggleColor() {
+//   neighbors[this.dataset.cell].forEach(position =>
+//     cells[position].classList.toggle('transposable'))
+
+//   moves[this.dataset.cell].forEach(position =>
+//     cells[position].classList.toggle('moveable'))
+// }

@@ -92,10 +92,11 @@ body {
 
 .occupied {
   background: aliceblue;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 -0.5rem 0.5rem rgba(0, 0, 0, 0.5),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.75);
 }
 
-.empty {  
+.empty {
   background: black;
   box-shadow: none;
 }
@@ -134,14 +135,14 @@ body {
 
 }
 
-.pegs{
+.pegs {
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 3rem;
   margin: 1rem 0;
 }
 
-#pegNumber{
+#pegNumber {
   margin: 0 1rem;
   font-size: 3rem;
   font-weight: 600;
