@@ -14,11 +14,8 @@ html {
 body {
   margin: 0;
   background-color: rgb(209, 220, 221);
-  /* min-height: 100vh; */
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -56,24 +53,6 @@ body {
   flex-direction: column;
   background-clip: content-box;
   background-color: rgb(82, 138, 187);
-}
-
-.shock-field {
-  animation: blast 0.1s alternate 4;
-}
-
-@keyframes blast {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(0.2rem);
-  }
-
-  100% {
-    transform: translateX(-0.2rem);
-  }
 }
 
 .row {
@@ -118,8 +97,6 @@ body {
 }
 
 
-/* ------------------------ */
-
 .showReport {
   margin: 1.5rem 0 0;
 }
@@ -131,8 +108,6 @@ body {
   color: black;
   margin: 0 0 1.5rem;
   text-align: center;
-
-
 }
 
 .pegs {
@@ -185,22 +160,9 @@ h1 {
 p {
   font-size: 1.2rem;
   text-align: justify;
-
-}
-
-ul {
-  font-size: 1.2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-}
-
-li {
-  text-align: left;
 }
 
 a {
-  font-size: 1.2rem;
   text-decoration: none;
   color: black;
 }

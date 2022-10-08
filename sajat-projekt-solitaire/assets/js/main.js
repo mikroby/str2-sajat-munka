@@ -8,11 +8,6 @@ const button = document.querySelector('.btn');
 const fieldPattern = [3, 3, 7, 7, 7, 3, 3]
 let cells, firstMove
 
-const theEnd = () => {
-  info.textContent = 'VÉGE A JÁTÉKNAK.'
-  button.textContent = 'Új játék';
-  button.onclick = start;
-}
 
 const animateHeader = () => {
   header.classList.add('shock-header');
@@ -43,7 +38,7 @@ const createField = () => {
 
 const initialize = () => {
   cells.forEach(cell => {
-    cell.classList.remove('transposable', 'moveable', 'taken', 'occupied', 'empty')
+    cell.classList.remove('occupied', 'empty')
     cell.dataset.cell === '16' ? cell.classList.add('empty') : cell.classList.add('occupied')
   })
 
@@ -53,9 +48,8 @@ const initialize = () => {
   firstMove = true
 }
 
-const showInfo = () => {
-  const pegs = document.querySelectorAll('.occupied')
-  pegNumber.textContent = pegs.length
+const showInfo = (info) => {
+  pegNumber.textContent = info
 }
 
 function take() {
@@ -93,16 +87,28 @@ function transpose() {
   const taken = document.querySelector('.taken')
   const current = taken.dataset.cell
 
-  // kill the overtaken one
+  // removes the overtaken peg
   cells[commonNeighbor(current, next)].classList.replace('occupied', 'empty')
 
   this.classList.replace('empty', 'occupied')
   taken.classList.replace('occupied', 'empty')
 
-  cleanup()
-  showInfo()
   animateHeader()
-  markMoveables()
+  checkEnd()
+}
+
+const checkEnd = () => {
+  cleanup()
+  const pegs = document.querySelectorAll('.occupied').length
+  showInfo(pegs)
+  if (pegs === 1) theEnd()
+  else markMoveables()
+}
+
+const theEnd = () => {
+  info.textContent = 'VÉGE A JÁTÉKNAK.'
+  button.textContent = 'Új játék';
+  button.onclick = start;
 }
 
 const cleanup = () =>
@@ -131,14 +137,13 @@ const getAllPosition = () => {
         .filter(position => cells[commonNeighbor(empty.dataset.cell, position)].classList.contains('occupied'))
       )
     )
-  // remove duplicates
+  // removes duplicates
   return [...new Set(positions.flat())]
 }
 
 const start = () => {
   initialize()
-  showInfo()
-  markMoveables()
+  checkEnd()
 }
 
 
@@ -146,7 +151,6 @@ const start = () => {
 (() => {
   createField()
   cells = document.querySelectorAll('.cell')
-
   start()
 })()
 
