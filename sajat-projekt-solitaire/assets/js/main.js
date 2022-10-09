@@ -48,10 +48,6 @@ const initialize = () => {
   firstMove = true
 }
 
-const showInfo = (info) => {
-  pegNumber.textContent = info
-}
-
 function take() {
   const taken = document.querySelector('.taken')
 
@@ -94,19 +90,28 @@ function transpose() {
   taken.classList.replace('occupied', 'empty')
 
   animateHeader()
+  cleanup()
   checkEnd()
 }
 
-const checkEnd = () => {
-  cleanup()
-  const pegs = document.querySelectorAll('.occupied').length
-  showInfo(pegs)
-  if (pegs === 1) theEnd()
-  else markMoveables()
+const showInfo = (info) => {
+  pegNumber.textContent = info
 }
 
-const theEnd = () => {
-  info.textContent = 'VÉGE A JÁTÉKNAK.'
+const checkEnd = () => {
+  const pegs = document.querySelectorAll('.occupied').length
+  showInfo(pegs)
+
+  if (pegs === 1) {
+    theEnd('Megnyerted a játékot!')
+    return
+  }
+
+  if (markMoveables() === 0) theEnd('Vége a játéknak!')
+}
+
+const theEnd = (text) => {
+  info.textContent = text
   button.textContent = 'Új játék';
   button.onclick = start;
 }
@@ -118,11 +123,15 @@ const cleanup = () =>
     cell.classList.remove('transposable', 'moveable', 'taken')
   })
 
-const markMoveables = () =>
-  getAllPosition().forEach(position => {
+const markMoveables = () => {
+  const allPosition = getAllPosition()
+  allPosition.forEach(position => {
     cells[position].classList.add('moveable')
     cells[position].addEventListener('click', take)
-  });
+  })
+
+  return allPosition.length
+}
 
 const commonNeighbor = (first, second) => {
   return neighbors[first].filter(neighborOfFirst => neighbors[second].includes(neighborOfFirst))[0]
@@ -143,6 +152,7 @@ const getAllPosition = () => {
 
 const start = () => {
   initialize()
+  cleanup()
   checkEnd()
 }
 
