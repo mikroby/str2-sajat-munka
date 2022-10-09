@@ -63,9 +63,11 @@ function take() {
   markTransposables(this)
 }
 
-const markTransposables = (cell) => {
-  moves[cell.dataset.cell]
+const markTransposables = (taken) => {
+  moves[taken.dataset.cell]
     .filter(position => cells[position].classList.contains('empty'))
+    .filter(position => cells[commonNeighbor(taken.dataset.cell, position)]
+      .classList.contains('occupied'))
     .forEach(position => {
       cells[position].classList.toggle('transposable')
       cells[position].addEventListener('click', transpose)
@@ -146,7 +148,7 @@ const getAllPosition = () => {
         .filter(position => cells[commonNeighbor(empty.dataset.cell, position)].classList.contains('occupied'))
       )
     )
-  // removes duplicates
+  // removes duplicated positions
   return [...new Set(positions.flat())]
 }
 
